@@ -173,7 +173,7 @@ module CollectiveIdea #:nodoc:
         end
 
         def store_new_parent
-          @move_to_new_parent_id = send("#{parent_column_name}_changed?") ? parent_id : false
+          @move_to_new_parent_id = send("saved_change_to_#{parent_column_name}?") ? parent_id : false
           true # force callback to return true
         end
 
